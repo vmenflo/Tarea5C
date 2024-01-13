@@ -15,7 +15,7 @@ public class Cerveza {
     private String nombre;
     private String tipo;
     private String procedencia;
-    private int graduacion;
+    private double graduacion;
     
     //Constructores
     //Vacio
@@ -23,7 +23,7 @@ public class Cerveza {
     }
     
     // Con parametros
-    public Cerveza(String nombre, String tipo, String procedencia, int graduacion) {
+    public Cerveza(String nombre, String tipo, String procedencia, double graduacion) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.procedencia = procedencia;
@@ -64,11 +64,11 @@ public class Cerveza {
         this.procedencia = procedencia;
     }
 
-    public int getGraduacion() {
+    public double getGraduacion() {
         return graduacion;
     }
 
-    public void setGraduacion(int graduacion) {
+    public void setGraduacion(double graduacion) {
         this.graduacion = graduacion;
     }
     
@@ -89,11 +89,11 @@ public class Cerveza {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.nombre);
-        hash = 71 * hash + Objects.hashCode(this.tipo);
-        hash = 71 * hash + Objects.hashCode(this.procedencia);
-        hash = 71 * hash + this.graduacion;
+        int hash = 3;
+        hash = 47 * hash + Objects.hashCode(this.nombre);
+        hash = 47 * hash + Objects.hashCode(this.tipo);
+        hash = 47 * hash + Objects.hashCode(this.procedencia);
+        hash = 47 * hash + (int) (Double.doubleToLongBits(this.graduacion) ^ (Double.doubleToLongBits(this.graduacion) >>> 32));
         return hash;
     }
 
@@ -109,7 +109,7 @@ public class Cerveza {
             return false;
         }
         final Cerveza other = (Cerveza) obj;
-        if (this.graduacion != other.graduacion) {
+        if (Double.doubleToLongBits(this.graduacion) != Double.doubleToLongBits(other.graduacion)) {
             return false;
         }
         if (!Objects.equals(this.nombre, other.nombre)) {
@@ -120,6 +120,7 @@ public class Cerveza {
         }
         return Objects.equals(this.procedencia, other.procedencia);
     }
+    
     
     
 }

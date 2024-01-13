@@ -22,7 +22,7 @@ public class Catalogo {
             -> e1.getNombre().compareToIgnoreCase(e2.getNombre());
      private Comparator<Cerveza> ordenarGraduacion
             = (e1, e2)
-            -> Integer.compare(e1.getGraduacion(), e2.getGraduacion());
+            -> Double.compare(e1.getGraduacion(), e2.getGraduacion());
     //METODOS
 
     //Contructor Sin elementos
