@@ -85,6 +85,14 @@ public class Main {
         int posicion = catalogo.buscarElementoBinario(estrella);
         catalogo.imprimirCatalogo();
         System.out.println("Esta en la posicion : " + posicion);
+        posicion = catalogo.buscarElemento(estrella);
+        System.out.println("Busqueda no binaria : " + posicion);
+        
+        System.out.println("--- Eliminamos la posicion 3");
+        catalogo.eliminarElemento(3);
+        catalogo.imprimirCatalogo();
+        
+         
         
         
         
